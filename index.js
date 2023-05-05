@@ -14,12 +14,11 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 
 //Örneğin çözümü:
 function KareninAlani(kenaruzunlugu){
-	return kenaruzunlugu*kenaruzunlugu;
+	return kenaruzunlugu*kenaruzunlugu ;
+	
 }
 
-/* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
-
+console.log (KareninAlani(10))
 
 /* 	GÖREV 1:  
 		- CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
@@ -29,10 +28,12 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
-}
+ function CemberinCevresi(yariçap){
 
+	let cevre = 2 * pi * yariçap
+	return cevre
+ }
+ console.log(CemberinCevresi(7))
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -47,10 +48,11 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yaricap,pi){
+	let alan = pi * Math.pow(yaricap,2)
+	return alan 
 }
-
+console.log(CemberinAlani(7,pi))
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -77,41 +79,69 @@ function CemberinAlani(/* kodlar buraya */){
 	
 	//3a çözümü
 
-	/* kodlar buraya */
-	
+     enkucuk =sayilar[0];
+	 enbuyuk = sayilar[0];
+	for(let i = 0 ; i<sayilar.length;i++){
+		if(sayilar[i]>enbuyuk)
+		enbuyuk=sayilar[i];
+
+		if(sayilar[i]<enkucuk)
+		enkucuk=sayilar[i];
+		
+	}
+	console.log(enbuyuk)
+	console.log(enkucuk)
+
 	
 	
 	// 3b çözümü:
 
-	/* kodlar buraya */
-		
+	var ucetambolunenler = []
+	sayilar.forEach(sayi=> {
+		if(sayi %3 === 0 ){
+			ucetambolunenler.push(sayi);
+		}
+	});
 		
 		
 	//3c çözümü:
 	
-	/* kodlar buraya */
-
+	var ucebolunenlerintoplami = ucetambolunenler.reduce((sayi,sayi2)=> sayi + sayi2); 
 	
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
-
+	var besyuzdenkucuksayilar = []
+	sayilar.filter(sayi => {if(sayi<500){besyuzdenkucuksayilar.push(sayi)}})
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
+	var siralisayilar = besyuzdenkucuksayilar.sort(function(a,b){return a-b});
+	
+
 	
 	
 	//3f çözümü
 	
-	/* kodlar buraya */
+	var tekraredensayilar = [];
+	let depo ={};
+	sayilar.forEach(sayi =>{
+		if(sayi in depo){
+			depo[sayi]+=1
+		}
+		else{
+			depo[sayi]=1
+		}
+		
+	})
+
+	for(let sayi in depo){
+		tekraredensayilar.push (`${sayi} sayısı ${depo[sayi]} kere tekrar edilmiştir`)
+	}
 
 
-
-
-	
+	console.log(tekraredensayilar)
 		
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
